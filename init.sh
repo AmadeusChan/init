@@ -1,6 +1,6 @@
 echo Initializing
 sudo apt-get update
-echo y | sudo apt-get install git cmake build-essential indicator-cpufreq lm-sensors emacs r-base 
+echo y | sudo apt-get install git cmake build-essential indicator-cpufreq lm-sensors emacs r-base vim
 echo y | sudo apt-get install openconnect
 git clone https://github.com/AmadeusChan/vimsetting.git
 cp ./vimsetting/.vimrc ~/.vimrc
@@ -26,7 +26,8 @@ git clone https://github.com/BVLC/caffe.git
 echo y | sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
 echo y | sudo apt-get install --no-install-recommends libboost-all-dev
 echo y | sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
-cp ./Makefile.config ./caffe/Makefile.config
+echo y | sudo apt-get install libatlas-base-dev
+cp Makefile.config ./caffe/Makefile.config
 cd caffe
 make all -j8
 make test -j8
