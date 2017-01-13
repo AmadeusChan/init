@@ -1,5 +1,14 @@
+echo Updating Kernel
+sudo atp-get update
+mkdir kernel
+cd kernel
+wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9.3/linux-headers-4.9.3-040903_4.9.3-040903.201701120631_all.deb
+wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9.3/linux-headers-4.9.3-040903-generic_4.9.3-040903.201701120631_amd64.deb
+wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9.3/linux-image-4.9.3-040903-generic_4.9.3-040903.201701120631_amd64.deb 
+sudo dpkg -i *.deb
+cd ..
+
 echo Initializing
-sudo apt-get update
 echo y | sudo apt-get install git cmake build-essential indicator-cpufreq lm-sensors emacs r-base vim
 echo y | sudo apt-get install openconnect
 git clone https://github.com/AmadeusChan/vimsetting.git
@@ -32,3 +41,6 @@ cd caffe
 make all -j8
 make test -j8
 make runtest -j8
+
+echo y | sudo apt-get install python-pip
+echo y | sudo pip install shadowsocks
